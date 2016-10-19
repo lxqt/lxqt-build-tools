@@ -20,7 +20,7 @@ To build run `make`, to install `make install` which accepts variable `DESTDIR` 
 
 The repository was introduced in September 2016 and binary packages are rare so far. On Arch Linux an [AUR](https://aur.archlinux.org/) package [lxqt-build-tools-git](https://aur.archlinux.org/packages/lxqt-build-tools-git/) can be used to build current checkouts of branch `master`.
 
-### Distribution packagers ###
+### Distribution packagers
 
 Please mention that the binary packages are arch-dependend right now. CMake adds a architecture check here:
 ```diff
