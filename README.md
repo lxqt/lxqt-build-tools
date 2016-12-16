@@ -18,4 +18,4 @@ To build run `make`, to install `make install` which accepts variable `DESTDIR` 
 
 ## Packagers
 
-Please keep in mind that lxqt-build-tools are arch dependend - the package pick up **32/64bit-ness** at build time of the package - so the package has to be built for the respective architecture, arch: any will **not** fly.
+Please keep in mind that lxqt-build-tools are arch dependend - the package picks up **32/64bit-ness** at build time of the package - so the package has to be built for the respective architecture, arch: all will **not** fly.
