@@ -113,6 +113,12 @@ if (CMAKE_COMPILER_IS_GNUCXX OR LXQT_COMPILER_IS_CLANGCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${__LXQT_COMMON_WARNING_FLAGS} -Wnon-virtual-dtor -Woverloaded-virtual -Wpedantic")
 endif()
 
+if (LXQT_COMPILER_IS_CLANGCXX)
+    # qCDebug(), qCWarning, etc trigger a very verbose warning, about.... nothing. Disable it.
+    # Found when building lxqt-session.
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-gnu-zero-variadic-macro-arguments")
+endif()
+
 
 #-----------------------------------------------------------------------------
 # Linker flags
