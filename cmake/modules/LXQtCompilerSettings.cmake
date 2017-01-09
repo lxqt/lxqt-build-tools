@@ -103,7 +103,7 @@ endif()
 #-----------------------------------------------------------------------------
 # Common warning flags
 #-----------------------------------------------------------------------------
-set(__LXQT_COMMON_WARNING_FLAGS "-Wall")
+set(__LXQT_COMMON_WARNING_FLAGS "-Wall -Wextra -Wchar-subscripts -Wno-long-long -Wpointer-arith -Wundef -Wformat-security")
 
 
 #-----------------------------------------------------------------------------
