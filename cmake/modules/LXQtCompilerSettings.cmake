@@ -110,7 +110,7 @@ set(__LXQT_COMMON_WARNING_FLAGS "-Wall -Wextra -Wchar-subscripts -Wno-long-long 
 # Warning flags
 #-----------------------------------------------------------------------------
 if (CMAKE_COMPILER_IS_GNUCXX OR LXQT_COMPILER_IS_CLANGCXX)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${__LXQT_COMMON_WARNING_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${__LXQT_COMMON_WARNING_FLAGS} -Wnon-virtual-dtor -Woverloaded-virtual -Wpedantic")
 endif()
 
 
