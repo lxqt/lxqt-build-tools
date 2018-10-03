@@ -128,3 +128,10 @@ install(
     DESTINATION
         "${MODULES_INSTALL_DIR}"
 )
+
+# Tools install
+install(
+    FILES
+        "lxqt-transupdate"
+    DESTINATION
+        "${CMAKE_INSTALL_BINDIR}")
