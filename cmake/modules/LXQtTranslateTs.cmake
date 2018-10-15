@@ -27,9 +27,7 @@
 #
 # funtion lxqt_translate_ts(qmFiles
 #                           [USE_QT5 [Yes | No]]
-#                           [UPDATE_TRANSLATIONS [Yes | No]]
 #                           SOURCES <sources>
-#                           [UPDATE_OPTIONS] update_options
 #                           [TEMPLATE] translation_template
 #                           [TRANSLATION_DIR] translation_directory
 #                           [INSTALL_DIR] install_directory
@@ -40,13 +38,6 @@
 #
 #     Input:
 #       USE_QT5 Optional flag to choose between Qt4 and Qt5. Defaults to Qt5
-#
-#       UPDATE_TRANSLATIONS Optional flag. Setting it to Yes, extracts and
-#                           compiles the translations. Setting it No, only
-#                           compiles them.
-#
-#       UPDATE_OPTIONS Optional options to lupdate when UPDATE_TRANSLATIONS
-#                       is True.
 #
 #       TEMPLATE Optional translations files base name. Defaults to
 #                ${PROJECT_NAME}. An .ts extensions is added.
@@ -62,31 +53,19 @@
 #                   present. Defaults to "Runtime".
 #
 
-# CMake v2.8.3 needed to use the CMakeParseArguments module
-cmake_minimum_required(VERSION 2.8.3 FATAL_ERROR)
-
 # We use our patched version to round a annoying bug.
 include(Qt5PatchedLinguistToolsMacros)
 
 function(lxqt_translate_ts qmFiles)
     set(oneValueArgs
         USE_QT5
-        UPDATE_TRANSLATIONS
         TEMPLATE
         TRANSLATION_DIR
         INSTALL_DIR
         COMPONENT
     )
-    set(multiValueArgs SOURCES UPDATE_OPTIONS)
+    set(multiValueArgs SOURCES)
     cmake_parse_arguments(TR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
-
-    if (NOT DEFINED TR_UPDATE_TRANSLATIONS)
-        set(TR_UPDATE_TRANSLATIONS "No")
-    endif()
-
-    if (NOT DEFINED TR_UPDATE_OPTIONS)
-        set(TR_UPDATE_OPTIONS "")
-    endif()
 
     if (NOT DEFINED TR_USE_QT5)
         set(TR_USE_QT5 "Yes")
@@ -108,40 +87,10 @@ function(lxqt_translate_ts qmFiles)
 
     if(TR_USE_QT5)
         # Qt5
-        if (TR_UPDATE_TRANSLATIONS)
-            qt5_patched_create_translation(QMS
-                ${TR_SOURCES}
-                ${templateFile}
-                OPTIONS ${TR_UPDATE_OPTIONS}
-            )
-            qt5_patched_create_translation(QM
-                ${TR_SOURCES}
-                ${tsFiles}
-                OPTIONS ${TR_UPDATE_OPTIONS}
-            )
-        else()
-            qt5_patched_add_translation(QM ${tsFiles})
-        endif()
+        qt5_patched_add_translation(QM ${tsFiles})
     else()
         # Qt4
-        if(TR_UPDATE_TRANSLATIONS)
-            qt4_create_translation(QMS
-                ${TR_SOURCES}
-                ${templateFile}
-                OPTIONS ${TR_UPDATE_OPTIONS}
-            )
-            qt4_create_translation(QM
-                ${TR_SOURCES}
-                ${tsFiles}
-                OPTIONS ${TR_UPDATE_OPTIONS}
-            )
-        else()
-            qt4_add_translation(QM ${tsFiles})
-        endif()
-    endif()
-
-    if(TR_UPDATE_TRANSLATIONS)
-        add_custom_target("update_${TR_TEMPLATE}_ts" ALL DEPENDS ${QMS})
+        qt4_add_translation(QM ${tsFiles})
     endif()
 
     if(DEFINED TR_INSTALL_DIR)
