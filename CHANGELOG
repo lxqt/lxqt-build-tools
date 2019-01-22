@@ -11,7 +11,7 @@ lxqt-build-tools-0.6.0 / 2018-12-01
     - Drop 0X and 11 support, require c++14
     - Remvoed QUIET from any finds
     - Cleaned up LXQtTranslateTs module
-    - Removed tranlation pulling and cleanup external repos
+    - Removed translation pulling and cleanup external repos
       after translations moved back to their original repos
     - Remove link-time optimization for gcc since it breaks
       qobject_cast() in some cases.
