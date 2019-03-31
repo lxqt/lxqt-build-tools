@@ -84,7 +84,7 @@ endif()
 #-----------------------------------------------------------------------------
 # Detect Clang compiler
 #-----------------------------------------------------------------------------
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
     set(LXQT_COMPILER_IS_CLANGCXX 1)
 endif()
 
@@ -131,16 +131,23 @@ endif()
 # Do not allow undefined symbols
 #-----------------------------------------------------------------------------
 if (CMAKE_COMPILER_IS_GNUCXX OR LXQT_COMPILER_IS_CLANGCXX)
-    # -Bsymbolic-functions: replace dynamic symbols used internally in
-    #                       shared libs with direct addresses.
-    set(SYMBOLIC_FLAGS
-        "-Wl,-Bsymbolic-functions -Wl,-Bsymbolic"
-    )
+    # Assume Xcode Clang is always used with Apple ld64
+    if (${CMAKE_CXX_COMPILER_ID} STREQUAL AppleClang)
+        set(NO_UNDEFINED_FLAGS "-Wl,-undefined,error")
+        # -Bsymbolic* make sense for ELF only
+        set(SYMBOLIC_FLAGS "")
+    else()
+        set(NO_UNDEFINED_FLAGS "-Wl,--no-undefined")
+        # -Bsymbolic-functions: replace dynamic symbols used internally in
+        #                       shared libs with direct addresses.
+        set(SYMBOLIC_FLAGS "-Wl,-Bsymbolic-functions -Wl,-Bsymbolic")
+    endif()
+
     set(CMAKE_SHARED_LINKER_FLAGS
-        "-Wl,--no-undefined ${SYMBOLIC_FLAGS} ${CMAKE_SHARED_LINKER_FLAGS}"
+        "${NO_UNDEFINED_FLAGS} ${SYMBOLIC_FLAGS} ${CMAKE_SHARED_LINKER_FLAGS}"
     )
     set(CMAKE_MODULE_LINKER_FLAGS
-        "-Wl,--no-undefined ${SYMBOLIC_FLAGS} ${CMAKE_MODULE_LINKER_FLAGS}"
+        "${NO_UNDEFINED_FLAGS} ${SYMBOLIC_FLAGS} ${CMAKE_MODULE_LINKER_FLAGS}"
     )
     set(CMAKE_EXE_LINKER_FLAGS
         "${SYMBOLIC_FLAGS} ${CMAKE_EXE_LINKER_FLAGS}"
