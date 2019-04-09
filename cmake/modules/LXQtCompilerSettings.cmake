@@ -99,6 +99,15 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 
 
 #-----------------------------------------------------------------------------
+# Build related settings
+#-----------------------------------------------------------------------------
+
+# Automatically add the current source and build directories to the include
+# path.
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+
+#-----------------------------------------------------------------------------
 # Disable exceptions
 #-----------------------------------------------------------------------------
 if (CMAKE_COMPILER_IS_GNUCXX OR LXQT_COMPILER_IS_CLANGCXX)
