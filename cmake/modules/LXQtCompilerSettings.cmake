@@ -160,6 +160,7 @@ endif()
 # CXX14 requirements - no checks, we just set it
 #-----------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD 14 CACHE STRING "C++ ISO Standard")
 
 
