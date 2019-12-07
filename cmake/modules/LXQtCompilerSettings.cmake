@@ -110,6 +110,17 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 # path.
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+# Enable Clazy when building with Clang.
+# Clazy is a Qt oriented code checker based on clang framework.
+if(LXQT_COMPILER_IS_CLANGCXX)
+    option(LXQT_ENABLE_CLAZY "Enable Clazy warnings" OFF)
+
+    if (LXQT_ENABLE_CLAZY)
+        find_package(Clazy 1.5 REQUIRED)
+        set(CMAKE_CXX_COMPILE_OBJECT "${CMAKE_CXX_COMPILE_OBJECT} -Xclang -load -Xclang ${Clazy_PLUGIN} -Xclang -add-plugin -Xclang clazy")
+    endif()
+endif()
+
 
 #-----------------------------------------------------------------------------
 # Disable exceptions
