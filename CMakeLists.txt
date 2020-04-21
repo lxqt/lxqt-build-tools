@@ -9,7 +9,7 @@ project(lxqt-build-tools)
 option(WITH_XDG_DIRS_FALLBACK "Use our XDG_CONFIG_DIRS fallback" ON)
 
 set(LXQT_BUILD_TOOLS_MAJOR_VERSION 0)
-set(LXQT_BUILD_TOOLS_MINOR_VERSION 6)
+set(LXQT_BUILD_TOOLS_MINOR_VERSION 7)
 set(LXQT_BUILD_TOOLS_PATCH_VERSION 0)
 set(LXQT_BUILD_TOOLS_VERSION ${LXQT_BUILD_TOOLS_MAJOR_VERSION}.${LXQT_BUILD_TOOLS_MINOR_VERSION}.${LXQT_BUILD_TOOLS_PATCH_VERSION})
 
@@ -17,7 +17,7 @@ set(LXQT_BUILD_TOOLS_VERSION ${LXQT_BUILD_TOOLS_MAJOR_VERSION}.${LXQT_BUILD_TOOL
 # Check for needed versions
 # We need at least Qt 5.7.1 and glib-2.0 >= 2.50 to build all LXQt parts
 find_package(PkgConfig REQUIRED)
-find_package(Qt5Core "5.7.1"  REQUIRED)
+find_package(Qt5Core "5.10.0"  REQUIRED)
 pkg_check_modules(GLIB2 glib-2.0>=2.50 REQUIRED)
 
 include(CMakePackageConfigHelpers)
