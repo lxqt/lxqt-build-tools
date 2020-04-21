@@ -1,3 +1,14 @@
+lxqt-build-tools-0.7.0 / 2020-04-21
+===================================
+  * Bump version to 0.7.0.
+  * Initial support for Xcode (AppleClang and ld64).
+  * Added a section for settings related to CMake build.
+  * Set C++ extensions to be disabled.
+  * Forbid string casts in LXQtCompilerSettings.
+  * Added a FindClazy CMake module.
+  * Enabled Clazy option when building with clang.
+  * Adds CMake find modules for some xdg-utils tools.
+  * The minimum Qt version is bumped to 5.10.0.
 
 lxqt-build-tools-0.6.0 / 2018-01-25
 ===================================
