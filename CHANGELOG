@@ -1,3 +1,9 @@
+lxqt-build-tools-0.8.0 / 2020-11-01
+===================================
+  * Removed version checks for some LXQt dependencies.
+  * ￼Added a Fontconfig CMake find module.
+  * ￼Suppressed warning about find_package_handle_standard_args package name mismatch.
+
 lxqt-build-tools-0.7.0 / 2020-04-21
 ===================================
   * Bump version to 0.7.0.
