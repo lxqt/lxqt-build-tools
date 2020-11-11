@@ -130,5 +130,6 @@ install(
 install(
     PROGRAMS
         "lxqt-transupdate"
+        "lxqt-ts2desktop"
     DESTINATION
         "${CMAKE_INSTALL_BINDIR}")
