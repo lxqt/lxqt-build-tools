@@ -45,6 +45,10 @@ file(GLOB toInstallModules
     "${PROJECT_SOURCE_DIR}/cmake/modules/*.in"
 )
 
+file(GLOB toInstallModulesHelpers
+    "${PROJECT_SOURCE_DIR}/cmake/modules/*.pl"
+)
+
 
 #-----------------------------------------------------------------------------
 # Superbuild mode
@@ -59,6 +63,7 @@ file(COPY
 
 file(COPY
     ${toInstallModules}
+    ${toInstallModulesHelpers}
     DESTINATION "${MODULES_INSTALL_DIR}"
 )
 
@@ -121,6 +126,7 @@ install(
 install(
     FILES
         ${toInstallModules}
+        ${toInstallModulesHelpers}
         "${CMAKE_CURRENT_BINARY_DIR}/install/LXQtConfigVars.cmake"
     DESTINATION
         "${MODULES_INSTALL_DIR}"
