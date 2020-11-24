@@ -23,7 +23,11 @@ sub flush_translations {
                 {
                     my ($key, $value) = ($1, $2);
                     $value =~ s/^['"]//; $value =~ s/['"]$//;
-                    print(STDOUT "$key$language=$value\n");
+                    if (length($value))
+                    {
+                        # Don't flush empty (untranslated) strings
+                        print(STDOUT "$key$language=$value\n");
+                    }
                 }
             }
             close($trans_fh);
