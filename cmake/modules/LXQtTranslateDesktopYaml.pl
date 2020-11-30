@@ -22,7 +22,7 @@ sub flush_translations {
                 if ($trans_l =~ $transl_yaml_re)
                 {
                     my ($key, $value) = ($1, $2);
-                    $value =~ s/^['"]//; $value =~ s/['"]$//;
+                    $value =~ s/^\s+|\s+$//; $value =~ s/^['"]//; $value =~ s/['"]$//;
                     if (length($value))
                     {
                         # Don't flush empty (untranslated) strings
