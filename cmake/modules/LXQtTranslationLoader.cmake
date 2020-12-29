@@ -25,7 +25,7 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
 #
-# These functions enables "automatic" translation loading in LXQt Qt5 apps
+# These functions enables "automatic" translation loading in LXQt Qt6 apps
 #   and libs. They generate a .cpp file that takes care of everything. The
 #   user doesn't have to do anything in the source code.
 #

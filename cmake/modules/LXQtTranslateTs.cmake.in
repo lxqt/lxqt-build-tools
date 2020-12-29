@@ -26,7 +26,7 @@
 #=============================================================================
 #
 # funtion lxqt_translate_ts(qmFiles
-#                           [USE_QT5 [Yes | No]]
+#                           [USE_QT6 [Yes | No]]
 #                           [UPDATE_TRANSLATIONS [Yes | No]]
 #                           SOURCES <sources>
 #                           [UPDATE_OPTIONS] update_options
@@ -39,7 +39,7 @@
 #       qmFiles The generated compiled translations (.qm) files
 #
 #     Input:
-#       USE_QT5 Optional flag to choose between Qt4 and Qt5. Defaults to Qt5
+#       USE_QT6 Optional flag to choose between Qt5 and Qt6. Defaults to Qt6
 #
 #       UPDATE_TRANSLATIONS Optional flag. Setting it to Yes, extracts and
 #                           compiles the translations. Setting it No, only
@@ -62,11 +62,11 @@
 #                   present. Defaults to "Runtime".
 #
 
-find_package(Qt5LinguistTools "@LXQT_MIN_LINGUIST_VERSION@" REQUIRED)
+find_package(Qt6LinguistTools "@LXQT_MIN_LINGUIST_VERSION@" REQUIRED)
 
 function(lxqt_translate_ts qmFiles)
     set(oneValueArgs
-        USE_QT5
+        USE_QT6
         UPDATE_TRANSLATIONS
         TEMPLATE
         TRANSLATION_DIR
@@ -84,8 +84,8 @@ function(lxqt_translate_ts qmFiles)
         set(TR_UPDATE_OPTIONS "")
     endif()
 
-    if (NOT DEFINED TR_USE_QT5)
-        set(TR_USE_QT5 "Yes")
+    if (NOT DEFINED TR_USE_QT6)
+        set(TR_USE_QT6 "Yes")
     endif()
 
     if(NOT DEFINED TR_TEMPLATE)
@@ -102,9 +102,25 @@ function(lxqt_translate_ts qmFiles)
         set(templateFile "${TR_TRANSLATION_DIR}/${TR_TEMPLATE}.ts")
     endif ()
 
-    if(TR_USE_QT5)
-        # Qt5
+    if(TR_USE_QT6)
+        # Qt6
         if (TR_UPDATE_TRANSLATIONS)
+            qt6_create_translation(QMS
+                ${TR_SOURCES}
+                ${templateFile}
+                OPTIONS ${TR_UPDATE_OPTIONS}
+            )
+            qt6_create_translation(QM
+                ${TR_SOURCES}
+                ${tsFiles}
+                OPTIONS ${TR_UPDATE_OPTIONS}
+            )
+        else()
+            qt6_add_translation(QM ${tsFiles})
+        endif()
+    else()
+        # Qt5
+        if(TR_UPDATE_TRANSLATIONS)
             qt5_create_translation(QMS
                 ${TR_SOURCES}
                 ${templateFile}
@@ -117,22 +133,6 @@ function(lxqt_translate_ts qmFiles)
             )
         else()
             qt5_add_translation(QM ${tsFiles})
-        endif()
-    else()
-        # Qt4
-        if(TR_UPDATE_TRANSLATIONS)
-            qt4_create_translation(QMS
-                ${TR_SOURCES}
-                ${templateFile}
-                OPTIONS ${TR_UPDATE_OPTIONS}
-            )
-            qt4_create_translation(QM
-                ${TR_SOURCES}
-                ${tsFiles}
-                OPTIONS ${TR_UPDATE_OPTIONS}
-            )
-        else()
-            qt4_add_translation(QM ${tsFiles})
         endif()
     endif()
 
