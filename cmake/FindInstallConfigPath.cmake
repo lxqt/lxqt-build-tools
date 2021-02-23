@@ -5,16 +5,24 @@
 #   qmake -query QT_INSTALL_CONFIGURATION
 #
 
-find_package(Qt6CoreTools REQUIRED)
+find_package(Qt6 COMPONENTS BuildInternals Core CoreTools REQUIRED)
 
-if(NOT DEFINED LXQT_ETC_XDG_DIR)
+message(STATUS "QT6_INSTALL_CONFIGURATION: ${QT6_INSTALL_CONFIGURATION}")
+message(STATUS "QT_INSTALL_DIR: ${QT_INSTALL_DIR}")
+message(STATUS "QT6_INSTALL_PLUGINS: ${QT6_INSTALL_PLUGINS}")
+message(STATUS "QT_INSTALL_PLUGINS: ${QT_INSTALL_PLUGINS}")
+message(STATUS "QT_SYS_CONF_DIR" "${QT_SYS_CONF_DIR}")
+message(STATUS "INSTALL_SYSCONFDIR: ${INSTALL_SYSCONFDIR}")
+message(STATUS "INSTALL_PLUGINSDIR: ${INSTALL_PLUGINSDIR}")
+
+if(NOT DEFINED LXQT2_ETC_XDG_DIR)
     if (TARGET Qt6::qmake)
         get_target_property(_qt_qmake_executable Qt6::qmake IMPORTED_LOCATION)
     endif()
 
     if(NOT _qt_qmake_executable)
         message(FATAL_ERROR
-            "LXQT_ETC_XDG_DIR: qmake executable not found (included before qt was configured?)")
+            "LXQT2_ETC_XDG_DIR: qmake executable not found (included before qt was configured?)")
     endif()
 
     execute_process(COMMAND ${_qt_qmake_executable} -query QT_INSTALL_CONFIGURATION
@@ -24,11 +32,11 @@ if(NOT DEFINED LXQT_ETC_XDG_DIR)
     set(QT_QMAKE_EXECUTABLE ${_qt_qmake_executable}
         CACHE FILEPATH "Location of the Qt6 qmake executable")
 
-    set(LXQT_ETC_XDG_DIR ${_lxqt_etc_xdg_dir}
+    set(LXQT2_ETC_XDG_DIR ${_lxqt_etc_xdg_dir}
         CACHE FILEPATH "Location of the LXQt XDG system-wide configuration files")
 
-    message(STATUS "LXQT_ETC_XDG_DIR autodetected as '${LXQT_ETC_XDG_DIR}'")
-    message(STATUS "You can set it manually with -DLXQT_ETC_XDG_DIR=<value>")
+    message(STATUS "LXQT2_ETC_XDG_DIR autodetected as '${LXQT2_ETC_XDG_DIR}'")
+    message(STATUS "You can set it manually with -DLXQT2_ETC_XDG_DIR=<value>")
     message(STATUS "")
 endif ()
 
