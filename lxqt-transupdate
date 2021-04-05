@@ -45,6 +45,6 @@ for i in $TEMPLATES; do
   lupdate  $SOURCEDIR -ts $i -locations absolute -no-obsolete
   echo
   echo "== Language updates =="
-  echo "lupdate $SOURCEDIR -ts $TRANSDIR/*.ts -locations absolute -no-obsolete\n"
+  echo "lupdate $SOURCEDIR -ts $TRANSDIR/*_*.ts -locations absolute -no-obsolete\n"
   lupdate  $SOURCEDIR -ts $TRANSDIR/*_*.ts -locations absolute -no-obsolete
 done
