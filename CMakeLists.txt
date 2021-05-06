@@ -12,8 +12,7 @@ set(LXQT_BUILD_TOOLS_MAJOR_VERSION 0)
 set(LXQT_BUILD_TOOLS_MINOR_VERSION 9)
 set(LXQT_BUILD_TOOLS_PATCH_VERSION 0)
 set(LXQT_BUILD_TOOLS_VERSION ${LXQT_BUILD_TOOLS_MAJOR_VERSION}.${LXQT_BUILD_TOOLS_MINOR_VERSION}.${LXQT_BUILD_TOOLS_PATCH_VERSION})
-# for lxqt_translate_ts we require at least Qt linguist 5.12.5 for correct file name handling
-set(LXQT_MIN_LINGUIST_VERSION "5.12.5")
+set(LXQT_MIN_LINGUIST_VERSION "5.15.0")
 
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs) # Standard directories for installation
