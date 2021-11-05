@@ -1,3 +1,7 @@
+lxqt-build-tools-0.10.0 / 2021-11-04
+===================================
+  * Set the minimum required version of Qt to 5.15.
+
 lxqt-build-tools-0.9.0 / 2021-04-15
 ===================================
   * Added a CMake FindXTerm module.
