@@ -101,7 +101,7 @@ foreach (_component ${GLIB_FIND_COMPONENTS})
     elseif (${_component} STREQUAL "gio-unix")
         pkg_check_modules(GIO_UNIX gio-unix-2.0)
         find_path(GLIB_GIO_UNIX_INCLUDE_DIR
-                  NAMES gio/gunixconnection.h
+                  NAMES gio/gunixfdlist.h
                   HINTS ${GIO_UNIX_INCLUDEDIR}
                   PATH_SUFFIXES gio-unix-2.0)
 
