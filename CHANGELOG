@@ -1,4 +1,4 @@
-lxqt-build-tools-0.10.0 / 2022-04-15
+lxqt-build-tools-0.11.0 / 2022-04-15
 ===================================
  * Replaced `gunixconnection.h` file in `gio-unix` include dir check (after GLib 2.71.1).
 
