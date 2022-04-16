@@ -1,3 +1,7 @@
+lxqt-build-tools-0.11.0 / 2022-04-15
+===================================
+ * Replaced `gunixconnection.h` file in `gio-unix` include dir check (after GLib 2.71.1).
+
 lxqt-build-tools-0.10.0 / 2021-11-04
 ===================================
   * Set the minimum required version of Qt to 5.15.
