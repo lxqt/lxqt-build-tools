@@ -164,7 +164,7 @@ if (CMAKE_COMPILER_IS_GNUCXX OR LXQT_COMPILER_IS_CLANGCXX)
         set(NO_UNDEFINED_FLAGS "-Wl,--no-undefined")
         # -Bsymbolic-functions: replace dynamic symbols used internally in
         #                       shared libs with direct addresses.
-        set(SYMBOLIC_FLAGS "-Wl,-Bsymbolic-functions -Wl,-Bsymbolic")
+        set(SYMBOLIC_FLAGS "-Wl,-Bsymbolic-functions")
     endif()
 
     set(CMAKE_SHARED_LINKER_FLAGS
