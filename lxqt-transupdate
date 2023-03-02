@@ -36,7 +36,7 @@ export QT_SELECT=5
 
 TEMPLATES=$(find . -name \*.ts | grep -v '_')
 for i in $TEMPLATES; do
-  print "\n\n==== %s ====\n" "$i"
+  printf "\n\n==== %s ====\n" "$i"
   TRANSDIR=$(dirname "$i")
   SOURCEDIR=$(dirname "$TRANSDIR")
   # template-update
