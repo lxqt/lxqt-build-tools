@@ -2,7 +2,7 @@
 # Unfortunately QSettings we are using internally can be overriden in the Qt compilation
 # time to use different path for system-wide configs. (for example configure ... -sysconfdir /etc/settings ...)
 # This path can be found calling Qt qmake:
-#   qmake -query QT_INSTALL_CONFIGURATION
+#   qtpaths --query QT_INSTALL_CONFIGURATION
 #
 
 find_package(Qt6 COMPONENTS CoreTools REQUIRED)
@@ -12,38 +12,22 @@ macro(print_set_lxqt_etc_xdg_dir_info)
     message(STATUS "")
 endmacro()
 
+include(${PROJECT_SOURCE_DIR}/cmake/modules/LXQtQueryQt.cmake)
 
 if(NOT DEFINED LXQT_ETC_XDG_DIR)
-    if (TARGET Qt6::qmake)
-        get_target_property(_qt_qmake_executable Qt6::qmake IMPORTED_LOCATION)
-    endif()
-
-    if(NOT _qt_qmake_executable)
-        message(FATAL_ERROR
-            "LXQT_ETC_XDG_DIR: qmake executable not found (included before qt was configured?)")
-    endif()
-
     set(qt_variable "QT_INSTALL_CONFIGURATION")
-    execute_process(
-        COMMAND ${_qt_qmake_executable} -query "${qt_variable}"
-        RESULT_VARIABLE return_code
-        OUTPUT_VARIABLE output
-    )
-    if(return_code EQUAL 0)
-        string(STRIP "${output}" output)
-        file(TO_CMAKE_PATH "${output}" output_path)
-    else()
-        message(STATUS "Got nothing from: ${_qt_qmake_executable} -query \"${qt_variable}\". LXQT_ETC_XDG_DIR will be set to '/etc/xdg'")
+    lxqt_query_qt(output_path ${qt_variable} IGNORE_ERRORS)
+    if (output_path STREQUAL "")
         set(output_path "/etc/xdg")
+        set(LXQT_ETC_XDG_DIR ${output_path}
+            CACHE FILEPATH "Location of the LXQt XDG system-wide configuration files")
+        message(STATUS "Got nothing from: ${QUERY_EXECUTABLE} --query \"${qt_variable}\"")
+        message(STATUS "Unable to autodetect LXQT_ETC_XDG_DIR. LXQT_ETC_XDG_DIR will be set to '/etc/xdg'")
+    else()
+        set(LXQT_ETC_XDG_DIR ${output_path}
+            CACHE FILEPATH "Location of the LXQt XDG system-wide configuration files")
+        message(STATUS "LXQT_ETC_XDG_DIR autodetected as '${LXQT_ETC_XDG_DIR}'")
     endif()
+endif()
 
-    set(QT_QMAKE_EXECUTABLE ${_qt_qmake_executable}
-        CACHE FILEPATH "Location of the Qt6 qmake executable")
-
-    set(LXQT_ETC_XDG_DIR ${output_path}
-        CACHE FILEPATH "Location of the LXQt XDG system-wide configuration files")
-
-    message(STATUS "LXQT_ETC_XDG_DIR autodetected as '${LXQT_ETC_XDG_DIR}'")
-    print_set_lxqt_etc_xdg_dir_info()
-endif ()
-
+print_set_lxqt_etc_xdg_dir_info()
