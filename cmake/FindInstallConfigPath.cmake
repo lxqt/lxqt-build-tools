@@ -5,7 +5,8 @@
 #   qtpaths --query QT_INSTALL_CONFIGURATION
 #
 
-find_package(Qt6 COMPONENTS CoreTools REQUIRED)
+find_package(Qt6 ${LXQTBT_QT_MINIMUM_VERSION} REQUIRED)
+find_package(Qt6CoreTools ${LXQTBT_QT_MINIMUM_VERSION} REQUIRED)
 
 macro(print_set_lxqt_etc_xdg_dir_info)
     message(STATUS "You can set it manually with -DLXQT_ETC_XDG_DIR=<value>")

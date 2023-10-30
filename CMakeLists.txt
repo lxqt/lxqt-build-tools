@@ -16,6 +16,7 @@ set(LXQT_MIN_LINGUIST_VERSION "6.3")
 
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs) # Standard directories for installation
+include(FeatureSummary)
 include(cmake/FindInstallConfigPath.cmake) # sets LXQT_ETC_XDG_DIR, if unset
 include(cmake/modules/LXQtPreventInSourceBuilds.cmake)
 
@@ -154,4 +155,10 @@ install(
         "${CMAKE_INSTALL_BINDIR}"
     RENAME
         "lxqt2-transupdate"
+)
+
+# Feature summary
+feature_summary(
+    FATAL_ON_MISSING_REQUIRED_PACKAGES
+    WHAT ALL
 )
