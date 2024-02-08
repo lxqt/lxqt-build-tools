@@ -58,7 +58,8 @@
 #                   present. Defaults to "Runtime".
 #
 
-find_package(Qt6LinguistTools "@LXQT_MIN_LINGUIST_VERSION@" REQUIRED)
+# See https://bugreports.qt.io/browse/QTBUG-95791
+find_package(Qt6 "@LXQT_MIN_LINGUIST_VERSION@" REQUIRED COMPONENTS LinguistTools)
 
 function(lxqt_translate_ts qmFiles)
     set(oneValueArgs
