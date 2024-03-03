@@ -55,8 +55,8 @@ file(GLOB toInstallModulesHelpers
 #-----------------------------------------------------------------------------
 # Superbuild mode
 #-----------------------------------------------------------------------------
-set(FIND_MODULES_INSTALL_DIR "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/lxqt2-build-tools/cmake/find-modules/")
-set(MODULES_INSTALL_DIR "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/lxqt2-build-tools/cmake/modules/")
+set(FIND_MODULES_INSTALL_DIR "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/${CMAKE_PROJECT_NAME}/cmake/find-modules/")
+set(MODULES_INSTALL_DIR "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/${CMAKE_PROJECT_NAME}/cmake/modules/")
 
 file(COPY
     ${toInstallFindModules}
@@ -71,7 +71,7 @@ file(COPY
 
 configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/lxqt-build-tools-config.cmake.in"
-    "${CMAKE_BINARY_DIR}/lxqt2-build-tools-config.cmake"
+    "${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}-config.cmake"
     INSTALL_DESTINATION "neverland"     # required, altough we don't install it
     PATH_VARS
         MODULES_INSTALL_DIR
@@ -94,13 +94,13 @@ configure_file(
 #-----------------------------------------------------------------------------
 # Installable mode
 #-----------------------------------------------------------------------------
-set(CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/cmake/lxqt2-build-tools/")
-set(FIND_MODULES_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/cmake/lxqt2-build-tools/find-modules/")
-set(MODULES_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/cmake/lxqt2-build-tools/modules/")
+set(CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/cmake/${CMAKE_PROJECT_NAME}/")
+set(FIND_MODULES_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/cmake/${CMAKE_PROJECT_NAME}/find-modules/")
+set(MODULES_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/cmake/${CMAKE_PROJECT_NAME}/modules/")
 
 configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/lxqt-build-tools-config.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/install/lxqt2-build-tools-config.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/install/${CMAKE_PROJECT_NAME}-config.cmake"
     INSTALL_DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
     PATH_VARS
         MODULES_INSTALL_DIR
@@ -122,13 +122,13 @@ configure_file(
 # The package version file is common to superbuild and installable mode
 configure_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/lxqt-build-tools-config-version.cmake.in"
-    "${CMAKE_BINARY_DIR}/lxqt2-build-tools-config-version.cmake"
+    "${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}-config-version.cmake"
     @ONLY
 )
 
 install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/install/lxqt2-build-tools-config.cmake"
-    "${CMAKE_BINARY_DIR}/lxqt2-build-tools-config-version.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/install/${CMAKE_PROJECT_NAME}-config.cmake"
+    "${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}-config-version.cmake"
     DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
 )
 
