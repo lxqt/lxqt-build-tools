@@ -32,7 +32,7 @@
 
 # just to be sure - for distributions that user qtchooser
 # Debian and derivatives, Fedora, FreeBSD, Mageia, OpenMandriva, PCLinuxOS
-export QT_SELECT=5
+export QT_SELECT=6
 
 TEMPLATES=$(find . -name \*.ts | grep -v '_')
 for i in $TEMPLATES; do
