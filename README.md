@@ -36,13 +36,13 @@ This package is arch-independent now.  You can simply package it as
 
 | Package                      | Version|
 |------------------------------|--------|
-| KF5_MINIMUM_VERSION          | 5.36.0 |
-| KF5SCREEN_MINIMUM_VERSION    | 5.2.0  |
-| LIBFM_QT_MINIMUM_VERSION     | 0.14.0 |
-| LIBFMQT_MINIMUM_VERSION      | 0.14.0 |
+| KF6_MINIMUM_VERSION          | 6.0.0  |
+| KF6SCREEN_MINIMUM_VERSION    | 6.0.0  |
+| LIBFM_QT_MINIMUM_VERSION     | 2.0.0  |
+| LIBFMQT_MINIMUM_VERSION      | 2.0.0  |
 | LIBMENUCACHE_MINIMUM_VERSION | 1.1.0  |
-| LXQTBT_MINIMUM_VERSION       | 0.6.0  |
-| LXQT_MINIMUM_VERSION         | 0.14.0 |
+| LXQTBT_MINIMUM_VERSION       | 2.0.0  |
+| LXQT_MINIMUM_VERSION         | 2.0.0  |
 | QTERMWIDGET_MINIMUM_VERSION  | 0.14.0 |
-| QT_MINIMUM_VERSION           | 5.7.1  |
-| QTXDG_MINIMUM_VERSION        | 3.3.0  |
+| QT_MINIMUM_VERSION           | 6.6.0  |
+| QTXDG_MINIMUM_VERSION        | 4.0.0  |
