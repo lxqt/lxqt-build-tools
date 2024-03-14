@@ -29,6 +29,7 @@ if(NOT DEFINED LXQT_ETC_XDG_DIR)
             CACHE FILEPATH "Location of the LXQt XDG system-wide configuration files")
         message(STATUS "LXQT_ETC_XDG_DIR autodetected as '${LXQT_ETC_XDG_DIR}'")
     endif()
+
+    print_set_lxqt_etc_xdg_dir_info()
 endif()
 
-print_set_lxqt_etc_xdg_dir_info()
