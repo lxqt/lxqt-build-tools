@@ -3,7 +3,9 @@
 ## Introduction
 
 This repository is providing several tools needed to build LXQt itself as well
-as other components maintained by the LXQt project.
+as other components maintained by the LXQt project. 
+
+In LXQt 2.0.0 and later `lxqt2-` prefix is used for building with Qt6.
 
 These tools used to be spread over the repositories of various other components
 and were summarized to ease dependency management. So far many components, in
@@ -38,6 +40,7 @@ This package is arch-independent now.  You can simply package it as
 |------------------------------|--------|
 | KF6_MINIMUM_VERSION          | 6.0.0  |
 | KF6SCREEN_MINIMUM_VERSION    | 6.0.0  |
+| SHELLQT_MINIMUM_VERSION      | 6.0.0  |
 | LIBFM_QT_MINIMUM_VERSION     | 2.0.0  |
 | LIBFMQT_MINIMUM_VERSION      | 2.0.0  |
 | LIBMENUCACHE_MINIMUM_VERSION | 1.1.0  |
@@ -46,3 +49,4 @@ This package is arch-independent now.  You can simply package it as
 | QTERMWIDGET_MINIMUM_VERSION  | 0.14.0 |
 | QT_MINIMUM_VERSION           | 6.6.0  |
 | QTXDG_MINIMUM_VERSION        | 4.0.0  |
+
