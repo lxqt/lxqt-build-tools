@@ -1,3 +1,7 @@
+lxqt-build-tools-2.0.0 / 2024-04-17
+====================================
+ * Ported to Qt6, with the new project name `lxqt2-build-tools`.
+
 lxqt-build-tools-0.13.0 / 2023-04-15
 ====================================
  * Bumped minimum compatibility level to C++17.
