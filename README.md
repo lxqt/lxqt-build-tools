@@ -38,11 +38,11 @@ This package is arch-independent now.  You can simply package it as
 |------------------------------|--------|
 | KF6_MINIMUM_VERSION          | 6.0.0  |
 | KF6SCREEN_MINIMUM_VERSION    | 6.0.0  |
-| LIBFM_QT_MINIMUM_VERSION     | 2.0.0  |
-| LIBFMQT_MINIMUM_VERSION      | 2.0.0  |
+| LIBFM_QT_MINIMUM_VERSION     | 2.1.0  |
+| LIBFMQT_MINIMUM_VERSION      | 2.1.0  |
 | LIBMENUCACHE_MINIMUM_VERSION | 1.1.0  |
-| LXQTBT_MINIMUM_VERSION       | 2.0.0  |
-| LXQT_MINIMUM_VERSION         | 2.0.0  |
-| QTERMWIDGET_MINIMUM_VERSION  | 0.14.0 |
+| LXQTBT_MINIMUM_VERSION       | 2.1.0  |
+| LXQT_MINIMUM_VERSION         | 2.1.0  |
+| QTERMWIDGET_MINIMUM_VERSION  | 2.1.0 |
 | QT_MINIMUM_VERSION           | 6.6.0  |
-| QTXDG_MINIMUM_VERSION        | 4.0.0  |
+| QTXDG_MINIMUM_VERSION        | 4.1.0  |
