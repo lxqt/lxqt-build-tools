@@ -36,15 +36,15 @@ export QT_SELECT=6
 
 TEMPLATES=$(find . -name \*.ts | grep -v '_')
 for i in $TEMPLATES; do
-  echo "\n\n==== $i ====\n"
-  TRANSDIR=$(dirname $i)
-  SOURCEDIR=$(dirname $TRANSDIR)
+  printf "\n\n==== %s ====\n" "$i"
+  TRANSDIR=$(dirname "$i")
+  SOURCEDIR=$(dirname "$TRANSDIR")
   # template-update
-  echo "== Template Update =="
-  echo "lupdate $SOURCEDIR -ts $i -locations absolute -no-obsolete\n"
+  printf "== Template Update =="
+  printf "lupdate %s -ts %s -locations absolute -no-obsolete\n" "$SOURCEDIR" "$i"
   lupdate  $SOURCEDIR -ts $i -locations absolute -no-obsolete
   echo
-  echo "== Language updates =="
-  echo "lupdate $SOURCEDIR -ts $TRANSDIR/*_*.ts -locations absolute -no-obsolete\n"
+  printf "== Language updates =="
+  printf "lupdate %s -ts %s/*_*.ts -locations absolute -no-obsolete\n" "$SOURCEDIR" "$i"
   lupdate  $SOURCEDIR -ts $TRANSDIR/*_*.ts -locations absolute -no-obsolete
 done
