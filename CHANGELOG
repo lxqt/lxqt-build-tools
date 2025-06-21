@@ -1,3 +1,9 @@
+lxqt-build-tools-2.2.1 / 2025-06-25
+====================================
+ * Bumped the minimum compatibility level to C++20.
+ * Fixed bashisms in lxqt-transupdate for better portability with non-bash shells.
+ * Use FindXCB module provided by Qt.
+
 lxqt-build-tools-2.2.0 / 2025-04-17
 ====================================
  * Updated minimum versions in README.
