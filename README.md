@@ -16,7 +16,7 @@ repository will reduce superfluous and bloated dependencies.
 
 ### Compiling sources
 
-To build only CMake and Qt5Core are needed, optionally Git to pull VCS checkouts.
+To build only CMake and Qt6Core are needed, optionally Git to pull VCS checkouts.
 Runtime dependencies do not exist.
 
 Code configuration is handled by CMake. CMake variable `CMAKE_INSTALL_PREFIX`
@@ -38,11 +38,11 @@ This package is arch-independent now.  You can simply package it as
 |------------------------------|--------|
 | KF6_MINIMUM_VERSION          | 6.0.0  |
 | KF6SCREEN_MINIMUM_VERSION    | 6.0.0  |
-| LIBFM_QT_MINIMUM_VERSION     | 2.1.0  |
-| LIBFMQT_MINIMUM_VERSION      | 2.1.0  |
+| LIBFM_QT_MINIMUM_VERSION     | 2.3.0  |
+| LIBFMQT_MINIMUM_VERSION      | 2.3.0  |
 | LIBMENUCACHE_MINIMUM_VERSION | 1.1.0  |
-| LXQTBT_MINIMUM_VERSION       | 2.1.0  |
-| LXQT_MINIMUM_VERSION         | 2.1.0  |
-| QTERMWIDGET_MINIMUM_VERSION  | 2.1.0 |
+| LXQTBT_MINIMUM_VERSION       | 2.3.0  |
+| LXQT_MINIMUM_VERSION         | 2.3.0  |
+| QTERMWIDGET_MINIMUM_VERSION  | 2.3.0  |
 | QT_MINIMUM_VERSION           | 6.6.0  |
-| QTXDG_MINIMUM_VERSION        | 4.1.0  |
+| QTXDG_MINIMUM_VERSION        | 4.3.0  |

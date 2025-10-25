@@ -1,3 +1,7 @@
+lxqt-build-tools-2.3.0 / 2025-11-05
+====================================
+ * Make sure to run Qt6 lupdate.
+
 lxqt-build-tools-2.2.1 / 2025-06-25
 ====================================
  * Bumped the minimum compatibility level to C++20.
