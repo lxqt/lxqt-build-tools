@@ -157,6 +157,13 @@ install(
         "lxqt2-transupdate"
 )
 
+install(
+    PROGRAMS
+        "${PROJECT_SOURCE_DIR}/cmake/modules/LXQtTranslateDesktop.sh"
+    DESTINATION
+        "${MODULES_INSTALL_DIR}"
+)
+
 # Feature summary
 feature_summary(
     FATAL_ON_MISSING_REQUIRED_PACKAGES

@@ -76,22 +76,16 @@ function(lxqt_translate_desktop _RESULT)
                 COMMENT "Generating ${_fileName}.${_fileExt}"
             )
         else ()
-            file(GLOB _translations
-                ${_translationDir}/${_fileName}[_.]*${_fileExt}
-            )
-
-            list(SORT _translations)
             add_custom_command(OUTPUT ${_outFile}
-                COMMAND grep -v -a "#TRANSLATIONS_DIR=" ${_inFile} > ${_outFile}
-                VERBATIM
+                COMMAND ${LXQT_CMAKE_MODULES_DIR}/LXQtTranslateDesktop.sh
+                    ${_outFile}
+                    ${_inFile}
+                    ${_fileName}
+                    ${_fileExt}
+                    ${_translationDir}
                 COMMENT "Generating ${_fileName}.${_fileExt}"
+                USES_TERMINAL
             )
-            if (_translations)
-                add_custom_command(OUTPUT ${_outFile}
-                    COMMAND grep -h -a "\\[.*]\\s*=" ${_translations} >> ${_outFile}
-                    VERBATIM APPEND
-                )
-            endif ()
         endif ()
 
         set(__result ${__result} ${_outFile})
