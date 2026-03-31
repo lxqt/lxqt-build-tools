@@ -34,15 +34,17 @@ This package is arch-independent now.  You can simply package it as
 
 ## Current Minimum Versions
 
-| Package                      | Version|
-|------------------------------|--------|
-| KF6_MINIMUM_VERSION          | 6.0.0  |
-| KF6SCREEN_MINIMUM_VERSION    | 6.0.0  |
-| LIBFM_QT_MINIMUM_VERSION     | 2.3.0  |
-| LIBFMQT_MINIMUM_VERSION      | 2.3.0  |
-| LIBMENUCACHE_MINIMUM_VERSION | 1.1.0  |
-| LXQTBT_MINIMUM_VERSION       | 2.3.0  |
-| LXQT_MINIMUM_VERSION         | 2.3.0  |
-| QTERMWIDGET_MINIMUM_VERSION  | 2.3.0  |
-| QT_MINIMUM_VERSION           | 6.6.0  |
-| QTXDG_MINIMUM_VERSION        | 4.3.0  |
+| Package                       | Version|
+|-------------------------------|--------|
+| LIBFM_QT_MINIMUM_VERSION      | 2.4.0  |
+| LIBFMQT_MINIMUM_VERSION       | 2.4.0  |
+| LXQTBT_MINIMUM_VERSION        | 2.4.0  |
+| LXQT_MINIMUM_VERSION          | 2.4.0  |
+| QTERMWIDGET_MINIMUM_VERSION   | 2.4.0  |
+| QTXDG_MINIMUM_VERSION         | 4.4.0  |
+| LIBMENUCACHE_MINIMUM_VERSION  | 1.1.0  |
+| QT_MINIMUM_VERSION            | 6.6.0  |
+| LAYERSHELL_QT_MINIMUM_VERSION | 6.5.0  |
+| LAYERSHELL_QT_MINIMUM_VERSION | 6.5.0  |
+| KF6_MINIMUM_VERSION           | 6.0.0  |
+| KF6SCREEN_MINIMUM_VERSION     | 6.0.0  |
