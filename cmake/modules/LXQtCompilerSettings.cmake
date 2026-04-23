@@ -189,6 +189,14 @@ set(CMAKE_CXX_STANDARD 20 CACHE STRING "C++ ISO Standard")
 
 
 #-----------------------------------------------------------------------------
+# C99 requirements - no checks, we just set it
+#-----------------------------------------------------------------------------
+set(CMAKE_C_STANDARD_REQUIRED True)
+set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_C_STANDARD 99 CACHE STRING "C ISO Standard")
+
+
+#-----------------------------------------------------------------------------
 # Enable colored diagnostics for the CLang/Ninja combination
 #-----------------------------------------------------------------------------
 if (CMAKE_GENERATOR STREQUAL "Ninja" AND
