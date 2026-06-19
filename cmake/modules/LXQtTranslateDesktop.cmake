@@ -7,6 +7,8 @@
 # funtion lxqt_translate_desktop(_RESULT
 #                           SOURCES <sources>
 #                           [TRANSLATION_DIR] translation_directory
+#                           [INSTALL_DIR] install_directory
+#                           [COMPONENT] component
 #                           [USE_YAML]
 #                    )
 #     Output:
@@ -21,6 +23,12 @@
 #                        relative to the CMakeList.txt. Defaults to
 #                        "translations".
 #
+#       INSTALL_DIR Optional destination of the file compiled files (qmFiles).
+#                    If not present no installation is performed
+#
+#       COMPONENT Optional install component. Only effective if INSTALL_DIR
+#                   present. Defaults to "Runtime".
+#
 #       USE_YAML Flag if *.desktop.yaml translation should be used.
 #=============================================================================
 
@@ -29,7 +37,11 @@ find_package(Perl REQUIRED)
 function(lxqt_translate_desktop _RESULT)
     # Parse arguments ***************************************
     set(options USE_YAML)
-    set(oneValueArgs TRANSLATION_DIR)
+    set(oneValueArgs
+        TRANSLATION_DIR
+        INSTALL_DIR
+        COMPONENT
+    )
     set(multiValueArgs SOURCES)
 
     cmake_parse_arguments(_ARGS "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -90,6 +102,17 @@ function(lxqt_translate_desktop _RESULT)
 
         set(__result ${__result} ${_outFile})
     endforeach()
+
+    if (DEFINED _ARGS_INSTALL_DIR)
+        if (NOT DEFINED _COMPONENT)
+            set(_ARGS_COMPONENT "Runtime")
+        endif ()
+
+        install(FILES ${__result}
+            DESTINATION "${_ARGS_INSTALL_DIR}"
+            COMPONENT "${_ARGS_COMPONENT}"
+        )
+    endif()
 
     set(${_RESULT} ${__result} PARENT_SCOPE)
 endfunction(lxqt_translate_desktop)
