@@ -3,14 +3,7 @@
 ## Introduction
 
 This repository is providing several tools needed to build LXQt itself as well
-as other components maintained by the LXQt project.
-
-These tools used to be spread over the repositories of various other components
-and were summarized to ease dependency management. So far many components, in
-particular [liblxqt](https://github.com/lxqt/liblxqt), were representing a build
-dependency without being needed themselves but only because their repository was
-providing a subset of the tools which are now summarized here. So the use of this
-repository will reduce superfluous and bloated dependencies.
+as other components maintained by the LXQt project to ease dependency management.
 
 ## Installation
 
@@ -43,8 +36,7 @@ This package is arch-independent now.  You can simply package it as
 | QTERMWIDGET_MINIMUM_VERSION   | 2.4.0  |
 | QTXDG_MINIMUM_VERSION         | 4.4.0  |
 | LIBMENUCACHE_MINIMUM_VERSION  | 1.1.0  |
-| QT_MINIMUM_VERSION            | 6.6.0  |
-| LAYERSHELL_QT_MINIMUM_VERSION | 6.5.0  |
-| LAYERSHELL_QT_MINIMUM_VERSION | 6.5.0  |
+| QT_MINIMUM_VERSION            | 6.10.0 |
+| LAYERSHELL_QT_MINIMUM_VERSION | 6.6.0  |
 | KF6_MINIMUM_VERSION           | 6.0.0  |
-| KF6SCREEN_MINIMUM_VERSION     | 6.0.0  |
+| KF6SCREEN_MINIMUM_VERSION     | 6.6.0  |
