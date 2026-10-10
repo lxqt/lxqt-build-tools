@@ -29,13 +29,12 @@ This package is arch-independent now.  You can simply package it as
 
 | Package                       | Version|
 |-------------------------------|--------|
-| LIBFM_QT_MINIMUM_VERSION      | 2.4.0  |
-| LIBFMQT_MINIMUM_VERSION       | 2.4.0  |
-| LXQTBT_MINIMUM_VERSION        | 2.4.0  |
-| LXQT_MINIMUM_VERSION          | 2.4.0  |
-| QTERMWIDGET_MINIMUM_VERSION   | 2.4.0  |
-| QTXDG_MINIMUM_VERSION         | 4.4.0  |
-| LIBMENUCACHE_MINIMUM_VERSION  | 1.1.0  |
+| LIBFM_QT_MINIMUM_VERSION      | 2.5.0  |
+| LIBFMQT_MINIMUM_VERSION       | 2.5.0  |
+| LXQTBT_MINIMUM_VERSION        | 2.5.0  |
+| LXQT_MINIMUM_VERSION          | 2.5.0  |
+| QTERMWIDGET_MINIMUM_VERSION   | 2.5.0  |
+| QTXDG_MINIMUM_VERSION         | 4.5.0  |
 | QT_MINIMUM_VERSION            | 6.10.0 |
 | LAYERSHELL_QT_MINIMUM_VERSION | 6.6.0  |
 | KF6_MINIMUM_VERSION           | 6.0.0  |
