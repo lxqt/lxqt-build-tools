@@ -1,3 +1,11 @@
+lxqt-build-tools-2.5.0 / 2026-11-05
+====================================
+ * Set the C standard to C99.
+ * Improved desktop file translations handling.
+ * Updated min versions and readme.
+ * Used PROJECT_NAME instead of CMAKE_PROJECT_NAME for generated config files.
+ * Removed `FindMenuCache.cmake`.
+
 lxqt-build-tools-2.4.0 / 2026-04-20
 ====================================
  * Refactored YAML desktop file processing.
